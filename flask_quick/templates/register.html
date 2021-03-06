@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register Template</title>
+</head>
+<body>
+    <h1> Register for Intramural</h1>
+
+    <!--route to submit form to. POST doesn't end up in url (security)-->
+    <form action="/register" method="post"> 
+        <input name="name" placeholder="Name" type="text">
+        <select name="dorm">
+            <option disabled selected value="">Dorm</option>
+            <option value="Apley Court">Apley Court</option>
+            <option value="Canaday">Canaday</option>
+        </select>
+        <input type="submit" value="Register">
+    </form>
+
+    <script>
+        document.querySelector('form').onsubmit = function() {
+            if (!document.querySelector('input').value) {
+                alert('You must provide your name!');
+                return false;
+            }
+            else if (!document.querySelector('select').value) {
+                alert('You must provide your dorm!');
+                return false;
+            }
+            return true;
+        }
+    </script>
+
+</body>
+</html>
